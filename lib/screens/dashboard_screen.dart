@@ -6,6 +6,7 @@ import 'motor_screen.dart';
 import 'service_screen.dart';
 import 'reminder_screen.dart';
 import 'expense_screen.dart';
+import 'statistics_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -165,6 +166,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (mounted) loadDashboard();
   }
 
+  Future<void> bukaStatistik() async {
+  await Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const StatisticsScreen(),
+    ),
+  );
+
+  if (mounted) loadDashboard();
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -281,6 +293,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Icons.bar_chart,
                 'Statistik',
                 'Lihat statistik perawatan',
+                onTap: bukaStatistik,
               ),
             ],
           ),
